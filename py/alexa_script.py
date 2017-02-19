@@ -8,7 +8,7 @@ http://amzn.to/1LGWsLG
 """
 
 from __future__ import print_function
-import httplib, urllib, base64, json
+import httplib, urllib, base64, json, requests
 
 # --------------- Helpers that build all of the responses ----------------------
 
@@ -127,6 +127,10 @@ def getUserHasTakenIntent(intent, session):
         # response = conn.getresponse()
         # data = response.read()
         # unpacked_data = json.loads(data)
+        url = 'http://162.243.252.211:8001/medicine'
+        payload = {'user_id':'2'}
+        r = requests.get(url, json=payload)
+        userHasTaken = bool(r.json()['medicine'])
         if userHasTaken:
             speech_output = "good job, you have taken all of your medication    "
         else:
