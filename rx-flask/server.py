@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 import requests
 import json
 
+from sqlite3driver import register_user, user_needs_medicine, change_user_medication_status
+
 app = Flask(__name__)
 
 @app.route('/medicine', methods=['GET', 'POST'])
