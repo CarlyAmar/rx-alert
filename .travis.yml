@@ -6,4 +6,5 @@ android:
         - extra
 script:
     - jdk_switcher use oraclejdk8
+    - yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;24.0.3"
     - cd Rxalert && ./build.sh	
