@@ -5,4 +5,5 @@ android:
         - android-25
         - extra
 script:
-    cd Rxalert && ./build.sh	
+    - jdk_switcher use oraclejdk8
+    - cd Rxalert && ./build.sh	
