@@ -1,5 +1,6 @@
 package gmuthetatau.rxalert;
 
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
@@ -30,7 +31,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -71,12 +75,17 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
+        //TODO remove this next line
+        testMedicineInfo();
 
         mPasswordView = (EditText) findViewById(R.id.password);
-        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener()
+        {
             @Override
-            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.login || id == EditorInfo.IME_NULL) {
+            public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent)
+            {
+                if (id == R.id.login || id == EditorInfo.IME_NULL)
+                {
                     attemptLogin();
                     return true;
                 }
@@ -85,15 +94,40 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-        mEmailSignInButton.setOnClickListener(new OnClickListener() {
+        mEmailSignInButton.setOnClickListener(new OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 attemptLogin();
             }
         });
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    private void testMedicineInfo()
+    {
+
+        MedicineInfo medinfo = new MedicineInfo(this, "info.json");
+        try{
+            String s = medinfo.read().toString();
+            System.out.println(s);
+        }
+        catch (JSONException e)
+        {
+            System.out.println("No JSON file!");
+        }
+        catch (NullPointerException nptr)
+        {
+            System.out.println("String was null!");
+        }
+        HashMap<String, String> testmap = new HashMap<>();
+        testmap.put("id", "2");
+        testmap.put("weed", "7");
+
+        medinfo.write(testmap);
     }
 
     private void populateAutoComplete() {
@@ -192,7 +226,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             // Ask to Scan a barcode
             Intent intent = new Intent(this, mainmenu.class);
-
             startActivity(intent);
         }
     }
