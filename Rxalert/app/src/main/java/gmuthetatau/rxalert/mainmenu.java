@@ -11,6 +11,7 @@ public class mainmenu extends AppCompatActivity {
 
     public Button scanButton;
     public Button listButton;
+    public Button checkButton;
 
     public void initScan() {
         scanButton = (Button) findViewById(R.id.buttonscan);
@@ -38,6 +39,19 @@ public class mainmenu extends AppCompatActivity {
         });
     }
 
+    public void initCheck() {
+        scanButton = (Button) findViewById(R.id.buttoncheck);
+
+        scanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent checker = new Intent(mainmenu.this, ShowPopUpWindow.class);
+                startActivity(checker);
+            }
+        });
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,5 +59,6 @@ public class mainmenu extends AppCompatActivity {
         setContentView(R.layout.activity_mainmenu);
         initScan();
         initList();
+        initCheck();
     }
 }

@@ -27,7 +27,8 @@
         </activity>
         <activity android:name=".mainmenu" />
         <activity android:name=".rx_list" />
-        <activity android:name=".rx_register"></activity>
+        <activity android:name=".rx_register" />
+        <activity android:name=".ShowPopUpWindow" />
     </application>
 
 </manifest>
