@@ -120,6 +120,7 @@ def getUserHasTakenIntent(intent, session):
     userHasTaken = True
 
     try:
+        # params = urllib.urlencode({'user': 1})
         # conn = httplib.HTTPSConnection('api.wmata.com')
         # "type" "url"
         # conn.request("GET", "", "{body}", headers)
