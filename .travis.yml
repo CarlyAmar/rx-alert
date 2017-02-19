@@ -12,6 +12,7 @@ licenses:
     - 'google-gdk-license-.+'
 
 script:
+    - cp -rfv Rxalert/license $ANDROID_HOME/
     - jdk_switcher use oraclejdk8
     - echo "y" | android update sdk --no-ui --all --filter build-tools-25.0.1,android-25,extra-android-m2repository
     - cd Rxalert && ./build.sh	
