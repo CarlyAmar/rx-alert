@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 public class Barcode_Scanner extends AppCompatActivity implements OnClickListener{
 
+    private Button addBtn;
     private Button scanBtn;
     private TextView formatTxt, contentTxt;
 
@@ -26,6 +27,8 @@ public class Barcode_Scanner extends AppCompatActivity implements OnClickListene
         contentTxt = (TextView)findViewById(R.id.scan_content);
 
         scanBtn.setOnClickListener(this);
+
+        initAdd();
 
     }
 
@@ -50,5 +53,18 @@ public class Barcode_Scanner extends AppCompatActivity implements OnClickListene
                     "No scan data received!", Toast.LENGTH_SHORT);
             toast.show();
         }
+    }
+
+    public void initAdd() {
+        addBtn = (Button) findViewById(R.id.add_button);
+
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent register = new Intent(Barcode_Scanner.this, rx_register.class);
+                startActivity(register);
+            }
+        });
     }
 }

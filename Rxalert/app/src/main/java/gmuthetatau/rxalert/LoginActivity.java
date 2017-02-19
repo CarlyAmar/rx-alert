@@ -225,11 +225,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
 
             // Ask to Scan a barcode
-            Intent intent = new Intent(this, Barcode_Scanner.class);
-            /*Brcode_Scanner editText = (Barcode_Scanner) findViewById(R.id.activity_barcode__scanner);
-            String message = editText.getText().toString();
-            intent.putExtra(EXTRA_MESSAGE, message);
-            startActivity(intent);*/
+            Intent intent = new Intent(this, mainmenu.class);
             startActivity(intent);
         }
     }
