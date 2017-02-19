@@ -22,9 +22,9 @@ def medicine():
             return jsonify({"medicine":"False"})
     elif request.method == "POST":
         print(data)
-        need = change_user_medication_status(data["user_id"], data["medicine"])
+        need = change_user_medication_status(data["user_id"], data["medication"])
         uid="{0}".format(data["user_id"])
-        medication="{0}".format(data["medicine"])
+        medication="{0}".format(data["medication"])
         return jsonify({"user_id":uid,"medicine":medication})
     return jsonify({"text":"Hello World"})
 
