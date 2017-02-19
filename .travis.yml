@@ -4,6 +4,12 @@ android:
         - build-tools-25.0.3
         - android-25
         - extra
+
+licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
 script:
     - jdk_switcher use oraclejdk8
     - echo "y" | android update sdk --no-ui --all --filter build-tools-25.0.1,android-25,extra-android-m2repository
