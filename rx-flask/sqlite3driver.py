@@ -23,7 +23,7 @@ def user_needs_medicine(id):
         cursor = conn.execute(command)
         for row in cursor:
             if row[0] == "{0}".format(id):
-                return row[1] == "TRUE"
+                return row[1] == "TRUE" or row[1] == "True"
         conn.commit()
         conn.close()
     except Exception as e:
@@ -37,6 +37,7 @@ def change_user_medication_status(id, status):
         cursor = conn.execute(command)
         conn.commit()
         conn.close()
+        return status
     except Exception as e:
         print("Database Error!")
         print(traceback.format_exc(e))
