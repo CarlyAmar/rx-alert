@@ -10,4 +10,6 @@ public class rx_list extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rx_list2);
     }
+
+
 }

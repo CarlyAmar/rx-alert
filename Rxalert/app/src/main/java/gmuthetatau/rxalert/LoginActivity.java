@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
         HashMap<String, String> testmap = new HashMap<>();
         testmap.put("id", "2");
-        testmap.put("weed", "7");
+        testmap.put("ibuprofin", "7");
 
         medinfo.write(testmap);
     }
